@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { GiRotaryPhone } from "react-icons/gi";
 import { MdEmail } from "react-icons/md";
 import logo2 from '../../assets/logoimage2.png'

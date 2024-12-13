@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import axios from 'axios';
+import { Menu } from "../components/shomenus";
 
 export default function MakeMenuItem() {
   const [showModal, setShowModal] = useState(false);
@@ -92,7 +93,7 @@ export default function MakeMenuItem() {
           <option value="" disabled>
             Select a Menu
           </option>
-          {menu && menu?.map((menu) => (
+          {menu && menu?.map((menu:Menu) => (
             <option key={menu._id} value={menu._id}>
               {menu.name}
             </option>

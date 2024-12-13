@@ -23,7 +23,7 @@ export default function Modal() {
     }
   }
 
-  const buttonhandle=(e)=>{
+  const buttonhandle=()=>{
        createmenus()
        setShowModal(false)
   }

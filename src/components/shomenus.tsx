@@ -1,11 +1,26 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import foodimg from '../assets/foodimage.png'
 import foodimg2 from '../assets/classimage.png'
 
+ export type Menu = {
+    _id: string;
+    name: string;
+    description:string;
+    items:MenuItem[]
+  };
+
+   export type MenuItem={
+    _id:string;
+    name:string;
+    description:string;
+    price:string;
+    menuId:string;
+  }
+
 const Showmenus = () => {
     const [menus,setmenus]=useState([])
-    const [menuItem,setmenuItem]=useState({})
+    const [menuItem,setmenuItem]=useState<Menu>()
      useEffect(()=>{
         const fetchmenus=async()=>{
             try {
@@ -24,7 +39,9 @@ const Showmenus = () => {
 
         
      },[])
-     const fetchmeuItem=async(id)=>{
+     
+
+     const fetchmeuItem=async(id:string)=>{
             try {
                 const response=await axios.get(`http://localhost:5000/api/menu/${id}`)
                 setmenuItem(response.data)
@@ -41,7 +58,7 @@ const Showmenus = () => {
        <div className='flex flex-col items-center'>
         <div className='text-white flex  '>
             {
-                menus.map((data)=>(
+                menus.map((data:Menu)=>(
                     <button className='bg-black font-bold focus:bg-blue-500 border p-3 border-white m-6' onClick={()=>fetchmeuItem(data._id)} >
                         {data.name}
                     </button>
@@ -62,7 +79,7 @@ const Showmenus = () => {
         </div>
         <div className='flex flex-wrap '>
            {
-            menuItem?.items?.map((data)=>(
+            menuItem?.items?.map((data:MenuItem)=>(
                 <div className=' w-80 h-16 bg-black  p-2 m-6 '>
                     <div className='flex'>
                        <p className='font-bold  overflow-hidden text-white'>{data.name}................................................................................................................</p>
