@@ -24,7 +24,7 @@ const Showmenus = () => {
      useEffect(()=>{
         const fetchmenus=async()=>{
             try {
-                const response= await axios.get('http://localhost:5000/api/menus')
+                const response= await axios.get('https://menucreater-server.onrender.com/api/menus')
                 setmenus(response.data)
                 console.log(response.data,'this is responce ');
                 
@@ -43,7 +43,7 @@ const Showmenus = () => {
 
      const fetchmeuItem=async(id:string)=>{
             try {
-                const response=await axios.get(`http://localhost:5000/api/menu/${id}`)
+                const response=await axios.get(`https://menucreater-server.onrender.com/api/menu/${id}`)
                 setmenuItem(response.data)
                 console.log(response.data);
                 

@@ -10,7 +10,7 @@ export default function Modal() {
     if (!menuName || !menudescription) return alert('Please fill in all fields.');
 
     try {
-        const response=await axios.post('http://localhost:5000/api/menus',{
+        const response=await axios.post('https://menucreater-server.onrender.com/api/menus',{
             name:menuName,
             description:menudescription
         });

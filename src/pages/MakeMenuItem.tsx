@@ -16,7 +16,7 @@ export default function MakeMenuItem() {
 
   const fetchMenus = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/menus'); 
+      const response = await axios.get('https://menucreater-server.onrender.com/api/menus'); 
       setmenu(response.data);
       
     } catch (error) {
@@ -29,7 +29,7 @@ export default function MakeMenuItem() {
         return alert('Please fill in all fields and select a menu.')
     }
     try {
-        const resonse=await axios.post('http://localhost:5000/api/menu-items',{
+        const resonse=await axios.post('https://menucreater-server.onrender.com/api/menu-items',{
             name:itemname,
             description:itemdescription,
             price:itemprice,
